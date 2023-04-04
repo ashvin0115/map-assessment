@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   MapContainer,
   TileLayer,
   FeatureGroup,
-  Popup,
-  Marker
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-draw/dist/leaflet.draw.css";
@@ -12,10 +10,8 @@ import { EditControl } from "react-leaflet-draw";
 import "leaflet-draw";
 import axios from "axios";
 import MapSearch from "./MapSearch";
-import { OpenStreetMap } from "react-leaflet-search/lib/Providers";
 
 const Leaflet = () => {
-  const [map, setMap] = useState(null);
   const [address, setAddress] = useState({
     address: "NY", 
     coordinates: {lat: 1.3542, lng: -16.676}
@@ -25,18 +21,14 @@ const Leaflet = () => {
   const onCreated = (e) => {
     const layer = e?.leafletElement;
     if (layer) {
-      console.log(e);
-      console.log(editableFG);
 
       const drawnItems = editableFG.leafletElement._layers;
-      console.log(drawnItems);
       if (Object.keys(drawnItems).length > 1) {
         Object.keys(drawnItems).forEach((layerid, index) => {
           if (index > 0) return;
           const layer = drawnItems[layerid];
           editableFG.leafletElement.removeLayer(layer);
         });
-        console.log(drawnItems);
       }
     }
   };
@@ -47,9 +39,7 @@ const Leaflet = () => {
   };
 
   const handleClick = () => {
-      console.log(address);
       const mjson = JSON.stringify(address);
-      console.log({mjson});
       // Send a POST request
 
       axios.post('http://localhost:3001/add', {mjson}, {

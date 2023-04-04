@@ -3,7 +3,6 @@ import cors from 'cors';
 import * as firebaseAdmin from 'firebase-admin';
 import serviceAccount from './common/bunk-dev-test-firebase-adminsdk-vfeaa-48519ad9f5.json';
 import { getAddress } from './data-access/address-repository';
-import bodyParser from 'body-parser';
 const app = express();
 const port = 3001;
 
@@ -26,16 +25,13 @@ app.get('/get', async (req, res) => {
 });
 
 app.post('/add', (req, res) => {
-  // console.log(req);
   const params = JSON.parse(req.body.mjson);
   console.log(params);
   if(params)
   {
     const address = params.address;
-    console.log(address);
     const lat = params.coordinates.lat;
     const lng = params.coordinates.lng;
-    console.log(lat, lng);
     const db = firebaseAdmin.database();
     const ref = db.ref("addresses");
     const addressRef = ref.child(address);
