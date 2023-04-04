@@ -1,0 +1,9 @@
+{
+    "include": [
+        "src/**/*.json"
+    ],
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+    }
+}
