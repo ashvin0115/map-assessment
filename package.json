@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install-all": "yarn install --prefix frontend & npm install --prefix backend",
-    "install": "yarn install --prefix frontend & npm install --prefix backend",
+    "install-all": "npm install --prefix frontend & npm install --prefix backend",
+    "install": "npm install --prefix frontend & npm install --prefix backend",
     "server": "npm run start --prefix backend",
     "client": "npm run start --prefix frontend",
     "test": "npm run test --prefix backend",
     "e2e": "concurrently \"npm run server\" \"npm run e2e --prefix frontend\"",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "npm start --prefix frontend & npm start --prefix backend"
   },
   "keywords": [],
   "author": "",
