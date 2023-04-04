@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install-all": "npm install --prefix frontend & npm install --prefix backend",
-    "install": "npm install --prefix frontend & npm install --prefix backend",
+    "install-all": "yarn install --prefix frontend & npm install --prefix backend",
+    "install": "yarn install --prefix frontend & npm install --prefix backend",
     "server": "npm run start --prefix backend",
     "client": "npm run start --prefix frontend",
     "test": "npm run test --prefix backend",
