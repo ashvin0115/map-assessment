@@ -23,3 +23,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+backend/src/common/bunk-dev-test-firebase-adminsdk-vfeaa-48519ad9f5.json
